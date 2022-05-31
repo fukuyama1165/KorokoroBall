@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float power = 10;
+    public float power = 5;
     public Rigidbody rigidbody;
+    public ParticleSystem particleSystem;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        particleSystem.transform.position = rigidbody.transform.position;
     }
 
     // Update is called once per frame
@@ -35,5 +36,7 @@ public class PlayerController : MonoBehaviour
         {
             rigidbody.AddForce(new Vector3(-1, 0, 0) * power);
         }
+
+        particleSystem.transform.position = rigidbody.transform.position;
     }
 }
